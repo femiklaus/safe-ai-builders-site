@@ -18,18 +18,16 @@
   body{margin:0;font-family:'Lexend',system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:600;font-size:15px;padding:13px 24px;transition:transform .15s ease,box-shadow .15s ease}
+  .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:600;font-size:15px;padding:13px 24px;transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;border:none}
   .pill-primary{background:linear-gradient(135deg,var(--green-bright),var(--green));color:#fff;box-shadow:0 10px 30px rgba(11,138,67,.35)}
   .pill-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(11,138,67,.45)}
   .pill-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff}
   .pill-ghost:hover{border-color:#fff}
 
-  /* kente-inspired stripe */
   .kente{height:6px;width:100%;background:repeating-linear-gradient(90deg,
     var(--green) 0 22px,#16C86A 22px 30px,#fff 30px 34px,#0A6B34 34px 56px,#0A6B34 56px 56px);
     opacity:.9}
 
-  /* HERO */
   header{position:relative;overflow:hidden;color:#fff;
     background:radial-gradient(1200px 600px at 75% -10%,#0E5E33 0%,transparent 60%),
                radial-gradient(900px 500px at 10% 110%,#0A3A22 0%,transparent 55%),
@@ -49,7 +47,6 @@
   .nav-cta{font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.25);padding:9px 18px;border-radius:999px}
   .nav-cta:hover{border-color:#fff}
 
-  /* showcase image */
   .showcase{margin-top:-70px;position:relative;z-index:4}
   .hero-shot{width:100%;display:block;border-radius:26px;border:1px solid rgba(255,255,255,.12);
     box-shadow:0 40px 90px rgba(4,21,13,.38)}
@@ -63,7 +60,6 @@
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .shieldmark{width:92px;height:92px;margin:0 auto 26px;display:block;filter:drop-shadow(0 12px 30px rgba(22,200,106,.35))}
 
-  /* SECTIONS */
   section{padding:92px 0}
   .eyebrow{color:var(--green);font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 14px}
   h2{font-size:clamp(28px,4vw,42px);line-height:1.08;font-weight:800;letter-spacing:-1px;margin:0 0 18px}
@@ -78,7 +74,6 @@
   .card h3{margin:0 0 8px;font-size:20px;font-weight:600}
   .card p{margin:0;color:var(--muted);font-weight:300;font-size:15.5px}
 
-  /* approach band */
   .band{background:linear-gradient(160deg,var(--green-deep),#0A3A22);color:#fff;border-radius:34px;overflow:hidden;position:relative}
   .band .grid-ov{mask-image:linear-gradient(180deg,#000,transparent)}
   .band-inner{position:relative;z-index:2;padding:62px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:34px}
@@ -86,7 +81,17 @@
   .step h4{margin:8px 0 6px;font-size:20px;font-weight:600}
   .step p{margin:0;color:#B8D8C8;font-weight:300;font-size:15px}
 
-  /* CTA */
+  /* join / event form */
+  .join-card{background:linear-gradient(160deg,var(--green-deep),#0A3A22);border-radius:34px;padding:56px 48px;display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center;position:relative;overflow:hidden}
+  .join-form{display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
+  .fld{width:100%;font-family:inherit;font-size:15px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;outline:none}
+  .fld::placeholder{color:#9FBFAF}
+  .fld:focus{border-color:var(--green-bright);background:rgba(255,255,255,.1)}
+  select.fld{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239FBFAF' stroke-width='2.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 15px center}
+  select.fld option{color:#0A1F16}
+  .hidden-field{position:absolute;left:-9999px}
+  .form-msg{margin:6px 0 0;font-size:14.5px;color:#9FE9BE;font-weight:500}
+
   .final{text-align:center}
   .final h2{margin-bottom:14px}
   .final p{color:var(--muted);font-weight:300;font-size:18px;margin:0 0 30px}
@@ -98,18 +103,18 @@
   .foot .links{display:flex;gap:22px;font-size:15px}
   .copy{color:#6FA389;font-size:13px;margin-top:26px}
 
-  @media(max-width:640px){
+  @media(max-width:720px){
     .hero{padding:50px 0 100px}
     .showcase{margin-top:-56px}
     section{padding:64px 0}
     .band-inner{padding:44px 28px}
+    .join-card{grid-template-columns:1fr;padding:40px 26px}
     .foot{flex-direction:column;align-items:flex-start}
   }
 </style>
 </head>
 <body>
 
-<!-- shield logo as reusable symbol -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="shield" viewBox="0 0 200 220">
     <path d="M100 10 L180 44 V118 C180 172 146 200 100 212 C54 200 20 172 20 118 V44 Z" fill="none" stroke="currentColor" stroke-width="12"/>
@@ -117,6 +122,14 @@
     <circle cx="150" cy="72" r="11" fill="currentColor"/>
   </symbol>
 </svg>
+
+<!-- hidden static form so Netlify detects it at deploy time -->
+<form name="event-signup" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <select name="event"><option>placeholder</option></select>
+  <textarea name="note"></textarea>
+</form>
 
 <header>
   <div class="grid-ov"></div>
@@ -133,7 +146,7 @@
       <h1>Build AI the<br><span class="accent">right way</span>, together.</h1>
       <p class="lead">A community for the people actually building and shipping AI in Nigeria, founders and tech workers, learning to adopt it safely.</p>
       <div class="cta-row">
-        <a class="pill pill-primary" href="https://x.com/SafeAIBuilders" target="_blank" rel="noopener">Join the community</a>
+        <a class="pill pill-primary" href="#join">Join our next event</a>
         <a class="pill pill-ghost" href="#goals">Our goals</a>
       </div>
     </div>
@@ -141,12 +154,10 @@
   <div class="kente"></div>
 </header>
 
-<!-- SHOWCASE -->
 <div class="wrap showcase">
   <img class="hero-shot" src="assets/hero.jpg" alt="African tech team collaborating with laptops" loading="lazy" />
 </div>
 
-<!-- GOALS -->
 <section id="goals">
   <div class="wrap">
     <p class="eyebrow">What we're building</p>
@@ -177,7 +188,6 @@
   </div>
 </section>
 
-<!-- APPROACH -->
 <section style="padding-top:0">
   <div class="wrap">
     <div class="band">
@@ -192,12 +202,34 @@
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final" style="padding-top:0">
+<!-- JOIN / EVENT SIGNUP -->
+<section id="join" style="padding-top:0">
   <div class="wrap">
-    <h2>Building with AI? You belong here.</h2>
-    <p>Join the community and help shape how Nigeria adopts AI, safely.</p>
-    <a class="pill pill-primary" href="https://x.com/SafeAIBuilders" target="_blank" rel="noopener">Join on X</a>
+    <div class="join-card">
+      <div class="grid-ov"></div>
+      <div style="position:relative;z-index:2">
+        <p class="eyebrow" style="color:#7CE0AC">Join us</p>
+        <h2 style="color:#fff;margin-bottom:12px">Join our next event.</h2>
+        <p style="color:#B8D8C8;font-weight:300;max-width:380px;margin:0">Pick what you want in on. We'll email you the details and keep you in the loop as we launch.</p>
+      </div>
+      <form class="join-form" name="event-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="event-signup" />
+        <p class="hidden-field"><label>Leave this blank <input name="bot-field" /></label></p>
+        <input class="fld" type="text" name="name" placeholder="Your name" required />
+        <input class="fld" type="email" name="email" placeholder="Your email" required />
+        <select class="fld" name="event" required>
+          <option value="" disabled selected>Which event are you interested in?</option>
+          <option>Founding Launch Forum — Abuja</option>
+          <option>Monthly Meetup — Abuja</option>
+          <option>Online Study Track (cohort)</option>
+          <option>Online Community Hub</option>
+          <option>Not sure yet — keep me posted</option>
+        </select>
+        <textarea class="fld" name="note" rows="2" placeholder="What do you build with AI? (optional)"></textarea>
+        <button class="pill pill-primary" type="submit" style="width:100%;justify-content:center;margin-top:4px">Count me in</button>
+        <p class="form-msg" hidden></p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -213,6 +245,31 @@
     <div class="copy">A practitioner AI safety community · Abuja and across Nigeria</div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var f=document.querySelector('.join-form'); if(!f) return;
+    var msg=f.querySelector('.form-msg');
+    var btn=f.querySelector('button[type=submit]');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var body=new URLSearchParams(new FormData(f)).toString();
+      btn.textContent='Sending...';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+        .then(function(r){
+          if(!r.ok) throw new Error('bad');
+          f.reset(); btn.textContent='Count me in';
+          msg.hidden=false; msg.style.color='#9FE9BE';
+          msg.textContent="You're in. We'll email you the details shortly.";
+        })
+        .catch(function(){
+          btn.textContent='Count me in';
+          msg.hidden=false; msg.style.color='#FFC2B8';
+          msg.textContent='Could not send. Please email safeaibuildersng@gmail.com instead.';
+        });
+    });
+  })();
+</script>
 
 </body>
 </html>
