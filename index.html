@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Safe AI Builders Nigeria</title>
+<meta name="description" content="A practitioner AI safety community for the people building and shipping AI in Nigeria. Based in Abuja, open across the country." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#0B8A43; --green-bright:#16C86A; --green-deep:#04150D; --green-deep2:#0A2A1A;
+    --ink:#0A1F16; --muted:#5B7267; --line:#E6EEE9; --bg:#FFFFFF; --soft:#F4FAF6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Lexend',system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:600;font-size:15px;padding:13px 24px;transition:transform .15s ease,box-shadow .15s ease}
+  .pill-primary{background:linear-gradient(135deg,var(--green-bright),var(--green));color:#fff;box-shadow:0 10px 30px rgba(11,138,67,.35)}
+  .pill-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(11,138,67,.45)}
+  .pill-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+  .pill-ghost:hover{border-color:#fff}
+
+  /* kente-inspired stripe */
+  .kente{height:6px;width:100%;background:repeating-linear-gradient(90deg,
+    var(--green) 0 22px,#16C86A 22px 30px,#fff 30px 34px,#0A6B34 34px 56px,#0A6B34 56px 56px);
+    opacity:.9}
+
+  /* HERO */
+  header{position:relative;overflow:hidden;color:#fff;
+    background:radial-gradient(1200px 600px at 75% -10%,#0E5E33 0%,transparent 60%),
+               radial-gradient(900px 500px at 10% 110%,#0A3A22 0%,transparent 55%),
+               linear-gradient(160deg,var(--green-deep),var(--green-deep2))}
+  .grid-ov{position:absolute;inset:0;background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:46px 46px;mask-image:linear-gradient(180deg,#000,transparent 85%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:float 14s ease-in-out infinite}
+  .orb.a{width:340px;height:340px;background:#17C862;top:-80px;right:6%}
+  .orb.b{width:260px;height:260px;background:#0B8A43;bottom:-60px;left:2%;animation-delay:-5s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+
+  nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.3px}
+  .brand svg{width:34px;height:34px}
+  .nav-cta{font-size:14px;font-weight:600;border:1.5px solid rgba(255,255,255,.25);padding:9px 18px;border-radius:999px}
+  .nav-cta:hover{border-color:#fff}
+
+  .hero{position:relative;z-index:2;padding:70px 0 110px;text-align:center}
+  .tag{display:inline-block;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#9FE9BE;
+    border:1px solid rgba(255,255,255,.18);padding:7px 16px;border-radius:999px;margin-bottom:26px}
+  h1{font-size:clamp(38px,6.4vw,74px);line-height:1.02;font-weight:800;letter-spacing:-1.5px;margin:0 0 20px}
+  h1 .accent{background:linear-gradient(120deg,#5BF2A0,#16C86A);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{max-width:640px;margin:0 auto 36px;font-size:clamp(17px,2.2vw,21px);font-weight:300;color:#CFE9DB}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .shieldmark{width:92px;height:92px;margin:0 auto 26px;display:block;filter:drop-shadow(0 12px 30px rgba(22,200,106,.35))}
+
+  /* SECTIONS */
+  section{padding:92px 0}
+  .eyebrow{color:var(--green);font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 14px}
+  h2{font-size:clamp(28px,4vw,42px);line-height:1.08;font-weight:800;letter-spacing:-1px;margin:0 0 18px}
+  .section-intro{max-width:560px;color:var(--muted);font-weight:300;font-size:18px;margin:0 0 50px}
+
+  .goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:30px;transition:transform .18s ease,box-shadow .18s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(11,138,67,.12)}
+  .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+    background:linear-gradient(135deg,rgba(22,200,106,.16),rgba(11,138,67,.12))}
+  .ic svg{width:26px;height:26px;stroke:var(--green)}
+  .card h3{margin:0 0 8px;font-size:20px;font-weight:600}
+  .card p{margin:0;color:var(--muted);font-weight:300;font-size:15.5px}
+
+  /* approach band */
+  .band{background:linear-gradient(160deg,var(--green-deep),#0A3A22);color:#fff;border-radius:34px;overflow:hidden;position:relative}
+  .band .grid-ov{mask-image:linear-gradient(180deg,#000,transparent)}
+  .band-inner{position:relative;z-index:2;padding:62px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:34px}
+  .step .n{font-size:13px;color:#7CE0AC;font-weight:600;letter-spacing:1px}
+  .step h4{margin:8px 0 6px;font-size:20px;font-weight:600}
+  .step p{margin:0;color:#B8D8C8;font-weight:300;font-size:15px}
+
+  /* CTA */
+  .final{text-align:center}
+  .final h2{margin-bottom:14px}
+  .final p{color:var(--muted);font-weight:300;font-size:18px;margin:0 0 30px}
+
+  footer{background:var(--green-deep);color:#CFE9DB;padding:48px 0 40px}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  .foot .brand{color:#fff}
+  .foot a{color:#9FE9BE;font-weight:500}
+  .foot .links{display:flex;gap:22px;font-size:15px}
+  .copy{color:#6FA389;font-size:13px;margin-top:26px}
+
+  @media(max-width:640px){
+    .hero{padding:50px 0 80px}
+    section{padding:64px 0}
+    .band-inner{padding:44px 28px}
+    .foot{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- shield logo as reusable symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="shield" viewBox="0 0 200 220">
+    <path d="M100 10 L180 44 V118 C180 172 146 200 100 212 C54 200 20 172 20 118 V44 Z" fill="none" stroke="currentColor" stroke-width="12"/>
+    <path d="M62 116 L92 150 L150 72" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="150" cy="72" r="11" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header>
+  <div class="grid-ov"></div>
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><svg style="color:#16C86A"><use href="#shield"/></svg> Safe AI Builders <span style="opacity:.6;font-weight:400">· NG</span></div>
+      <a class="nav-cta" href="https://x.com/SafeAIBuilders" target="_blank" rel="noopener">Follow on X</a>
+    </nav>
+
+    <div class="hero">
+      <svg class="shieldmark" style="color:#16C86A"><use href="#shield"/></svg>
+      <span class="tag">Abuja · Open across Nigeria</span>
+      <h1>Build AI the<br><span class="accent">right way</span>, together.</h1>
+      <p class="lead">A community for the people actually building and shipping AI in Nigeria, founders and tech workers, learning to adopt it safely.</p>
+      <div class="cta-row">
+        <a class="pill pill-primary" href="https://x.com/SafeAIBuilders" target="_blank" rel="noopener">Join the community</a>
+        <a class="pill pill-ghost" href="#goals">Our goals</a>
+      </div>
+    </div>
+  </div>
+  <div class="kente"></div>
+</header>
+
+<!-- GOALS -->
+<section id="goals">
+  <div class="wrap">
+    <p class="eyebrow">What we're building</p>
+    <h2>A home for Nigeria's AI builders.</h2>
+    <p class="section-intro">AI is being adopted fast here, but the people building it have had no space to think about doing it safely. We're building that space.</p>
+    <div class="goals">
+      <div class="card">
+        <div class="ic"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-5a8 8 0 0116 0v5"/><circle cx="12" cy="7" r="3.5"/></svg></div>
+        <h3>A builder community</h3>
+        <p>Meetups and a network for founders and technical teams shipping AI products.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Safe adoption</h3>
+        <p>Practical guardrails for using AI in real products, where data and people are at stake.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <h3>Learn together</h3>
+        <p>A guided study track drawn from open AI safety and governance material.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+        <h3>Across Nigeria</h3>
+        <p>Rooted in Abuja, open online to builders anywhere in the country.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <div class="grid-ov"></div>
+      <div class="band-inner">
+        <div class="step"><div class="n">01</div><h4>Meetups</h4><p>Regular in-person sessions on concrete, builder-relevant safety themes.</p></div>
+        <div class="step"><div class="n">02</div><h4>Online hub</h4><p>An always-on space to share, ask, and keep the conversation going nationwide.</p></div>
+        <div class="step"><div class="n">03</div><h4>Study track</h4><p>A short, guided path to the core ideas of safe and responsible AI.</p></div>
+        <div class="step"><div class="n">04</div><h4>Partnerships</h4><p>Working alongside the groups already advancing AI safety in Nigeria.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <h2>Building with AI? You belong here.</h2>
+    <p>Join the community and help shape how Nigeria adopts AI, safely.</p>
+    <a class="pill pill-primary" href="https://x.com/SafeAIBuilders" target="_blank" rel="noopener">Join on X</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand"><svg style="color:#16C86A"><use href="#shield"/></svg> Safe AI Builders Nigeria</div>
+      <div class="links">
+        <a href="https://x.com/SafeAIBuilders" target="_blank" rel="noopener">@SafeAIBuilders</a>
+        <a href="mailto:safeaibuildersng@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="copy">A practitioner AI safety community · Abuja and across Nigeria</div>
+  </div>
+</footer>
+
+</body>
+</html>
